@@ -103,6 +103,8 @@ for (i = 2; i < table1.rows.length; i++) {
         data: crimesByCountry,
         backgroundColor: "#6B".concat(randomHex().split("#").pop()),
         borderColor: randomHex(),
+        borderWidth: 2,
+        hidden: i > 17, // ****** Note for Sara: feel free to adjust but I find it cool since it makes the chart less of a caltrop ******
         pointStyle: "rectRounded",
         spanGaps: true,
         fill: false,
@@ -122,6 +124,7 @@ const myChart2 = new Chart(ctx2, {
         datasets: crimesData
     },
     options: {
+        responsive: true
     },
 })
 
@@ -153,6 +156,7 @@ fetch("https://canvasjs.com/services/data/datapoints.php?xstart=0&ystart=10&leng
                 }]
             }, 
                 options: {
+                    responsive: true
                 }
         })
         liveUpdate()
@@ -160,7 +164,8 @@ fetch("https://canvasjs.com/services/data/datapoints.php?xstart=0&ystart=10&leng
     })
 
 let liveUpdate = () => {
-    fetch(`https://canvasjs.com/services/data/datapoints.php?xstart= + ${datapointsArray.length + 1} + &ystart= + ${datapointsArray[datapointsArray.length - 1].y} + &length=1&type=json`)
+    fetch(`https://canvasjs.com/services/data/datapoints.php?xstart=  ${datapointsArray.length + 1} 
+     &ystart=  ${datapointsArray[datapointsArray.length - 1].y}  &length=1&type=json`)
     .then(response => response.json())
     .then(data => {
         for (let i = 0; i < data.length; i++) {
@@ -169,5 +174,5 @@ let liveUpdate = () => {
         }
     })
     MYCHART3.update()
-    setTimeout(() => {liveUpdate()}, 3000)
+    setTimeout(() => liveUpdate(), 3000)
 }
