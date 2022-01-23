@@ -1,5 +1,5 @@
 <div align="center"><h1>DATA VISUALIZATION CHALLENGE</h1>  
-<img src="./assets/images/Dynamic_chart.jpg" alt="Dynamic chart" width="420px"/> <img src="./assets/images/Homicide_chart.jpg" alt="Homicides chart" width="420px"/></div>  
+<img src="./assets/images/Dynamic_chart.jpg" alt="Dynamic chart" width="390px"/> <img src="./assets/images/Homicide_chart.jpg" alt="Homicides chart" width="390px"/></div>  
   
 
 ---      
